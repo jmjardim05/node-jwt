@@ -1,5 +1,6 @@
 import Express from 'express'
-import bodyParser from 'body-parser'
+import usersRoute from '../src/routes/usersRoute';
+import { connect } from './services/database';
 
 import {
     verifyToken,
@@ -11,8 +12,11 @@ const app = Express()
 const port = 3000
 
 app.set('json spaces', 2);
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(Express.json())
 app.use(verifyToken)
+
+// registra a rota users com o recurso de autenticação
+usersRoute(app);
 
 app.get('/', (req, res) => res.send('Olá mundo pelo Express!'))
 
@@ -35,7 +39,8 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.get('/protected', protectRoute, (req, res) => res.send(req.decoded))
+app.get('/protected', protectRoute, /*next*/(req, res) => res.send(req.decoded))
 
-
-app.listen(port, () => console.log('Api rodando na porta 3000'))
+connect()
+    .then(() => app.listen(port, () => console.log('Api rodando na porta 3000')))
+    .catch(err => console.log(err))
