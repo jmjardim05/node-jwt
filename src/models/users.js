@@ -12,6 +12,7 @@ const userSchema = new Mongoose.Schema({
         },
         userName: {
             type: String,
+            unique: true,
             required: [true, "informar um nome de usuário"]
         },
         password: {
