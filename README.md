@@ -1,4 +1,4 @@
-## Fork do fonte da aula de NodeJS com Hapi - Digital Innovation One
+## Fork do fonte da aula de NodeJS autenticação com JWT e Express - Digital Innovation One
 Instrutor: [Henrique Schreiner](https://github.com/hmschreiner)
 
 Exercício da aula realizado!
