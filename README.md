@@ -1,3 +1,8 @@
+## Fork do fonte da aula de NodeJS com Hapi - Digital Innovation One
+Instrutor: [Henrique Schreiner](https://github.com/hmschreiner)
+
+Exercício da aula realizado!
+
 # node-jwt
 Exemplo de API em Node.js usando JWT
 
